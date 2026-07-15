@@ -1,0 +1,9 @@
+eplicaCount: 1
+
+image:
+  repository: nginx
+  tag: 1.21.6
+
+service:
+  type: LoadBalancer
+  port: 80
