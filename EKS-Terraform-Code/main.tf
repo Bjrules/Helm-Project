@@ -13,7 +13,7 @@ resource "aws_vpc" "banjo-vpc" {
 resource "aws_subnet" "banjo_subnet" {
   count = 2
   vpc_id                  = aws_vpc.banjo_vpc.id
-  cidr_block              = cidrsubnet(aws_vpc.devopsshack_vpc.cidr_block, 8, count.index)
+  cidr_block              = cidrsubnet(aws_vpc.banjo_vpc.cidr_block, 8, count.index)
   availability_zone       = element(["us-east-1a", "us-east-1b"], count.index)
   map_public_ip_on_launch = true
 
@@ -31,7 +31,7 @@ resource "aws_internet_gateway" "banjo_igw" {
 }
 
 resource "aws_route_table" "banjo_route_table" {
-  vpc_id = aws_vpc.devopsshack_vpc.id
+  vpc_id = aws_vpc.banjo_vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -50,7 +50,7 @@ resource "aws_route_table_association" "banjo_association" {
 }
 
 resource "aws_security_group" "banjo_cluster_sg" {
-  vpc_id = aws_vpc.devopsshack_vpc.id
+  vpc_id = aws_vpc.banjo_vpc.id
 
   egress {
     from_port   = 0
@@ -65,7 +65,7 @@ resource "aws_security_group" "banjo_cluster_sg" {
 }
 
 resource "aws_security_group" "banjo_node_sg" {
-  vpc_id = aws_vpc.devopsshack_vpc.id
+  vpc_id = aws_vpc.banjo_vpc.id
 
   ingress {
     from_port   = 0
@@ -174,7 +174,7 @@ resource "aws_iam_role_policy_attachment" "banjo_node_group_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 
-resource "aws_iam_role_policy_attachment" "devopsshack_node_group_cni_policy" {
+resource "aws_iam_role_policy_attachment" "banjo_node_group_cni_policy" {
   role       = aws_iam_role.banjo_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
