@@ -1,0 +1,12 @@
+# BankApp Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankapp-service
+spec:
+  type: {{ .Values.bankapp.service.type }}
+  ports:
+  - port: {{ .Values.bankapp.service.port }}
+    targetPort: 8080
+  selector:
+    app: bankapp

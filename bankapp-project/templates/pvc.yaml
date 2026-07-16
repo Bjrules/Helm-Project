@@ -1,0 +1,12 @@
+# Persistent Volume Claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: {{ .Values.storageClass.name }}
+  resources:
+    requests:
+      storage: {{ .Values.mysql.pvc.size }}

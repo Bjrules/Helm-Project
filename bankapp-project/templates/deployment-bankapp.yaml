@@ -1,0 +1,37 @@
+# BankApp Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bankapp
+spec:
+  replicas: {{ .Values.bankapp.replicas }}
+  selector:
+    matchLabels:
+      app: bankapp
+  template:
+    metadata:
+      labels:
+        app: bankapp
+    spec:
+      containers:
+      - name: bankapp
+        image: {{ .Values.bankapp.image }}
+        resources:
+          requests:
+            memory: {{ .Values.bankapp.resources.requests.memory }}
+            cpu: {{ .Values.bankapp.resources.requests.cpu }}
+          limits:
+            memory: {{ .Values.bankapp.resources.limits.memory }}
+            cpu: {{ .Values.bankapp.resources.limits.cpu }}
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql-service:3306/{{ .Values.mysql.database }}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_ROOT_PASSWORD

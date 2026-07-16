@@ -1,0 +1,7 @@
+# ConfigMap for MySQL
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  MYSQL_DATABASE: {{ .Values.mysql.database | quote }}
