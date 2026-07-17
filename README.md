@@ -166,14 +166,47 @@ helm rollback my-nginx 1
 > create values.yaml file for different Environment while namespace may depict different environment (Read Screenshots)
 ![alt text](IMG-SCREENSHOTS/Screenshot_20260716_000029.png)
 
+![alt text](IMG-SCREENSHOTS/Screenshot_20260717_232357.png)
+
 ![alt text](IMG-SCREENSHOTS/Screenshot_20260716_000324.png)
 
 ![alt text](IMG-SCREENSHOTS/Screenshot_20260716_001144.png)
+> showing application installed in the various Environments
+![alt text](IMG-SCREENSHOTS/Screenshot_20260716_004639.png)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260716_004651.png)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260716_004651.png)
 
 > uninstalling a helm release
 ![alt text](IMG-SCREENSHOTS/Screenshot_20260716_000630.png)
 
+## HELMING BANK APP
+```
+helm create bankapp-project
+```
+### Kindly refer to the Directory 'bankapp-project' to see how I tweek the bank app in a helm Chart
+ ![alt text](IMG-SCREENSHOTS/Screenshot_20260717_000449.png)
+ ![alt text](IMG-SCREENSHOTS/Screenshot_20260717_133053.png)
+## Personal Note: too many troubleshooting here .
 
+1. kubectl get pv (shows that my service account could not create the volume for my-sql to use, so mysql pods was showing pending and never got created)
+2. FailedScheduling: running PreBind plugin "VolumeBinding": binding volumes: context deadline exceeded 
+3. CrashLoopBackOff made my bankapp pods never to run at all. I also used a wrong Dockerimage
+  
+ ![alt text](IMG-SCREENSHOTS/Screenshot_20260717_234134.png)
+---
+![alt text](IMG-SCREENSHOTS/Screenshot_20260717_204357.png)
+### The fix was to do terraform destroy on the kubernetes EKS module I was using. and used the EKS-1.33-main.
+## Yipee :joy: :joy:
+![alt text](IMG-SCREENSHOTS/Screenshot_20260717_212307.png)
 
+![alt text](IMG-SCREENSHOTS/Screenshot_20260717_213244.png)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260717_213228.png)
+
+#### Created another Release, Namespace and it all worked. 
+
+![alt text](IMG-SCREENSHOTS/Screenshot_20260717_213448.png)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260717_220438.png)
+
+# THANK YOU !
 
 
