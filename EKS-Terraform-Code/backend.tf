@@ -1,3 +1,4 @@
+# Go to AWS and create an s3 bucket first
 terraform {
   backend "s3" {
     bucket         = "my-terraform-state"
