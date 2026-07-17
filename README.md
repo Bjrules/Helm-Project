@@ -209,4 +209,17 @@ helm create bankapp-project
 
 # THANK YOU !
 
+### SOME HELM COMMANDS
+```
+kubeclt create namespace bank-soft
+
+helm install <Revision-Name> . --namespace <Namespace>
+
+kubectl describe  pvc -n bank-soft
+
+helm uninstall bankapp -n bank-soft
+kubectl get pods -n kube-system | grep ebs-csi
+
+```
+
 
