@@ -166,5 +166,14 @@ helm rollback my-nginx 1
 > create values.yaml file for different Environment while namespace may depict different environment (Read Screenshots)
 ![alt text](IMG-SCREENSHOTS/Screenshot_20260716_000029.png)
 
+![alt text](IMG-SCREENSHOTS/Screenshot_20260716_000324.png)
+
+![alt text](IMG-SCREENSHOTS/Screenshot_20260716_001144.png)
+
+> uninstalling a helm release
+![alt text](IMG-SCREENSHOTS/Screenshot_20260716_000630.png)
+
+
+
 
 
