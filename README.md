@@ -37,6 +37,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt-get update && sudo apt-get install -y terraform
 terraform -version
 ```
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_165925.png)
 ---
 ## 3) Provision infra with Terraform
 
@@ -135,5 +136,35 @@ kubectl get pods
 ### Install HELM
 ```
 curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
 ```
-Some Useful helm commands.
+---
+# Helm Projects
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_182603.png)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_182819.png)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_183022.png)
+
+> google artifaccthub.io
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_223252.png)
+> for better view of helm charts, kindly sudo apt install tree
+```
+helm create my-nginx
+```
+> Deleted most files and Directory that is not useful so as to avoid errors (read Screenshots)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_232038.png)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_233623.png)
+> view on http
+![alt text](IMG-SCREENSHOTS/Screenshot_20260715_234553.png)
+
+```
+# perform this after modifying a value in values.yaml
+helm upgrade my-nginx .
+
+#rolling back to a revious verion that worked perfectly
+helm rollback my-nginx 1
+```
+> create values.yaml file for different Environment while namespace may depict different environment (Read Screenshots)
+![alt text](IMG-SCREENSHOTS/Screenshot_20260716_000029.png)
+
+
+
