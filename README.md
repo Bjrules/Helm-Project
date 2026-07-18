@@ -186,7 +186,7 @@ helm create bankapp-project
 ### Kindly refer to the Directory 'bankapp-project' to see how I tweek the bank app in a helm Chart
  ![alt text](IMG-SCREENSHOTS/Screenshot_20260717_000449.png)
  ![alt text](IMG-SCREENSHOTS/Screenshot_20260717_133053.png)
-## Personal Note: too many troubleshooting here .
+## Many troubleshootings here .
 
 1. kubectl get pv (shows that my service account could not create the volume for my-sql to use, so mysql pods was showing pending and never got created)
 2. FailedScheduling: running PreBind plugin "VolumeBinding": binding volumes: context deadline exceeded 
