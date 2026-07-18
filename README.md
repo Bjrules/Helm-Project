@@ -221,6 +221,6 @@ helm uninstall bankapp -n bank-soft
 kubectl get pods -n kube-system | grep ebs-csi
 
 ```
-# THANK GOD !
+# THANK YOU !
 
 
